@@ -75,7 +75,7 @@ class intro2 extends StatelessWidget {
                 padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
               ),
               child: Text(
-                'Losgen',
+                'Weiter',
                 style: TextStyle(
                   color: Colors.white,
                 ),

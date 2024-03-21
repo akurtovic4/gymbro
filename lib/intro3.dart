@@ -1,102 +1,102 @@
 import 'package:flutter/material.dart';
-import 'intro4.dart';
 
 class intro3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Prvi dio - polovina slike (možete koristiti Media Query za veličinu)
+          // Slika na jednoj četvrtini ekrana
           Container(
-            height: MediaQuery.of(context).size.height / 2,
+            height: MediaQuery.of(context).size.height / 1.5,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/zenapokazujetelefon.jpg'),
+                image: AssetImage('images/intro2.png'), // Stavite putanju do vaše slike
                 fit: BoxFit.cover,
               ),
             ),
           ),
+          // Logo ispod slike
 
-          // Drugi dio - bijela pozadina s tekstom i gumbom
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-              ),
-              padding: EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    'Willkommen bei Go2To',
-                    style: TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Verbessere dein Fahrterlebnis mit der Go2To-App',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  SizedBox(height: 8),
 
-                  SizedBox(height: 16),
-
-                  Container(
-                    height: MediaQuery.of(context).size.height / 4,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        height: 1000,
-                        width: 1000,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('images/go2.png'), // Putanja do slike
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 8),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Logika za dugme "Losgen"
-                      print('Dugme Losgen je pritisnuto.');
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => intro4()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade900, // Boja pozadine dugmeta
-                      foregroundColor: Colors.white, // Boja teksta na dugmetu
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Losgen'),
-                        SizedBox(width: 8), // Razmak između teksta i strelice
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white, // Boja strelice
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Matching-Benutzer',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          // Opis teksta "Die GymBro-Anwendung..."
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Probieren Sie unser Matching aus und finden Sie einen Trainingspartner basierend auf Ihren Interessen. Nutzen Sie GymBro und finden Sie einen entsprechenden Benutzer für ein gesundes Leben.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ),
+
+          SizedBox(height: 16),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildCircle(Colors.grey),
+              SizedBox(width: 8),
+              _buildCircle(Colors.grey),
+              SizedBox(width: 8),
+              _buildCircle(Colors.pink),
+              SizedBox(width: 8),
+              _buildCircle(Colors.grey),
+            ],
+          ),
+          // Dugme "Losgen"
+
+          SizedBox(height: 16),
+
+          Container(
+            width: 100,
+            child: ElevatedButton(
+              onPressed: () {
+                // Logika za dugme "Losgen"
+                print('Dugme Losgen je pritisnuto.');
+              },
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all(Size(100, 0)),
+                maximumSize: MaterialStateProperty.all(Size(100, double.infinity)),
+                backgroundColor: MaterialStateProperty.all(Colors.pink),
+                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
+              ),
+              child: Text(
+                'Weiter',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+
+
         ],
+      ),
+    );
+  }
+
+  // Funkcija za izgradnju malih krugova
+  Widget _buildCircle(Color color) {
+    return Container(
+      width: 16,
+      height: 16,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
       ),
     );
   }
