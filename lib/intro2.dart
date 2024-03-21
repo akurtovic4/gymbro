@@ -12,7 +12,7 @@ class intro2 extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 2,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/zenapokazujetelefon.jpg'),
+                image: AssetImage('images/intro1.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
