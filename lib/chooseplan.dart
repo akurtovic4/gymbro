@@ -55,6 +55,138 @@ class chooseplan extends StatelessWidget {
 
           SizedBox(height: 16),
 
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0), // Dodaj padding s obje strane
+                  child: Container(
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.pink, width: 2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Icon(
+                          Icons.stop,
+                          color: Colors.transparent,
+                          size: MediaQuery.of(context).size.width * 0.06,
+                        ),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Icon(
+                              Icons.stop,
+                              color: Colors.transparent,
+                              size: MediaQuery.of(context).size.width * 0.06,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Monatlich',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                                Text(
+                                  '5,99 €',
+                                  style: TextStyle(
+                                    color: Colors.pink, // Postavi boju na roz
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                                Text(
+                                  'pro Monat',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.01),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0), // Dodaj padding s obje strane
+                  child: Container(
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.pink, width: 2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Icon(
+                          Icons.stop,
+                          color: Colors.transparent,
+                          size: MediaQuery.of(context).size.width * 0.06,
+                        ),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Icon(
+                              Icons.stop,
+                              color: Colors.transparent,
+                              size: MediaQuery.of(context).size.width * 0.06,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Jährlich',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                                Text(
+                                  '39,99 €',
+                                  style: TextStyle(
+                                    color: Colors.pink, // Postavi boju na roz
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                                Text(
+                                  'pro Jahr',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: MediaQuery.of(context).size.width * 0.03,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+
+          SizedBox(height: 36),
+
 
           Container(
             width: 100,
@@ -70,7 +202,7 @@ class chooseplan extends StatelessWidget {
                 padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
               ),
               child: Text(
-                'Weiter',
+                'Weitermachen',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -92,7 +224,7 @@ class ChoiceOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: [
           Icon(
