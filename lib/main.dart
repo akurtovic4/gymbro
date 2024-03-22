@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/chooseplan.dart';
 
 import 'intro1.dart';
 import 'intro2.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => intro4(),
+        '/': (context) => chooseplan(),
         '/intro2': (context) => intro2(),
         '/intro3': (context) => intro3(),
         '/intro4': (context) => intro4(),
