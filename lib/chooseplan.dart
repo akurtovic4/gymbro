@@ -67,52 +67,29 @@ class chooseplan extends StatelessWidget {
                       border: Border.all(color: Colors.pink, width: 2),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Stack(
-                      alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.stop,
-                          color: Colors.transparent,
-                          size: MediaQuery.of(context).size.width * 0.06,
+                        Text(
+                          'Monat',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Icon(
-                              Icons.stop,
-                              color: Colors.transparent,
-                              size: MediaQuery.of(context).size.width * 0.06,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Monatlich',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
-                                Text(
-                                  '5,99 €',
-                                  style: TextStyle(
-                                    color: Colors.pink, // Postavi boju na roz
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
-                                Text(
-                                  'pro Monat',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                        SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                        Text(
+                          '5,99 €',
+                          style: TextStyle(
+                            color: Colors.pink, // Postavi boju na roz
+                          ),
+                        ),
+                        SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                        Text(
+                          'pro Monat',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
@@ -129,52 +106,29 @@ class chooseplan extends StatelessWidget {
                       border: Border.all(color: Colors.pink, width: 2),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Stack(
-                      alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.stop,
-                          color: Colors.transparent,
-                          size: MediaQuery.of(context).size.width * 0.06,
+                        Text(
+                          'Jährlich',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Icon(
-                              Icons.stop,
-                              color: Colors.transparent,
-                              size: MediaQuery.of(context).size.width * 0.06,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Jährlich',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
-                                Text(
-                                  '39,99 €',
-                                  style: TextStyle(
-                                    color: Colors.pink, // Postavi boju na roz
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                                SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
-                                Text(
-                                  'pro Jahr',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                        SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                        Text(
+                          '39,99 €',
+                          style: TextStyle(
+                            color: Colors.pink, // Postavi boju na roz
+                          ),
+                        ),
+                        SizedBox(height: 4), // Dodaj malo vertikalnog prostora između tekstova
+                        Text(
+                          'pro Jahr',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
@@ -184,9 +138,7 @@ class chooseplan extends StatelessWidget {
             ],
           ),
 
-
           SizedBox(height: 36),
-
 
           Container(
             width: 100,
