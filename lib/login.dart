@@ -10,20 +10,31 @@ class login extends StatelessWidget {
           children: [
             // Logo na jednoj četvrtini ekrana
             Container(
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 4,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('images/logo.png'), // Putanja do vašeg loga
                   fit: BoxFit.cover,
                 ),
               ),
+            ),
+
+            SizedBox(height: 16),
+
+            // Tekst "Einloggen" ispod loga
+            Container(
+              color: Colors.white, // Crna pozadina za kontrast
+              // Jedna četvrtina ekrana
               child: Center(
                 child: Text(
                   'Einloggen',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black, // Bijeli tekst za kontrast
                   ),
                 ),
               ),
@@ -37,6 +48,12 @@ class login extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'Benutzername / Email',
+                  filled: true,
+                  fillColor: Colors.grey[200], // Siva pozadina
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Zaobljeni rubovi
+                  ),
                 ),
               ),
             ),
@@ -50,6 +67,12 @@ class login extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Passwort',
+                  filled: true,
+                  fillColor: Colors.grey[200], // Siva pozadina
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Zaobljeni rubovi
+                  ),
                 ),
               ),
             ),
@@ -58,14 +81,26 @@ class login extends StatelessWidget {
 
             // Dugme "Anmelden"
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 16),
-              width: double.infinity,
+              width: 100,
               child: ElevatedButton(
                 onPressed: () {
-                  // Logika za prijavu
-                  print('Anmelden button pressed');
+                  // Logika za dugme "Losgen"
+                  print('Dugme Losgen je pritisnuto.');
                 },
-                child: Text('Anmelden'),
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all(Size(100, 0)),
+                  maximumSize: MaterialStateProperty.all(
+                      Size(100, double.infinity)),
+                  backgroundColor: MaterialStateProperty.all(Colors.pink),
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
+                ),
+                child: Text(
+                  'Anmelden',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
 
@@ -80,19 +115,69 @@ class login extends StatelessWidget {
               child: Text(
                 'Passwort vergessen?',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.grey,
                 ),
               ),
             ),
+            SizedBox(height: 36),
+
+            Container(
+              color: Colors.white, // Crna pozadina za kontrast
+              // Jedna četvrtina ekrana
+              child: Center(
+                child: Text(
+                  'Anmelden mit',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Bijeli tekst za kontrast
+                  ),
+                ),
+              ),
+            ),
+
+            // Dugmad za prijavu s društvenim mrežama
+          /*  Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: Image.asset('images/apple_logo.png'),
+                    // Putanja do Apple loga
+                    onPressed: () {
+                      // Logika za prijavu s Apple računom
+                      print('Prijavi se putem Apple računa');
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('images/facebook_logo.png'),
+                    // Putanja do Facebook loga
+                    onPressed: () {
+                      // Logika za prijavu s Facebook računom
+                      print('Prijavi se putem Facebook računa');
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('images/google_logo.png'),
+                    // Putanja do Google loga
+                    onPressed: () {
+                      // Logika za prijavu s Google računom
+                      print('Prijavi se putem Google računa');
+                    },
+                  ),
+                ],
+              ),
+            ), */
           ],
         ),
       ),
     );
   }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: login(),
-  ));
+  void main() {
+    runApp(MaterialApp(
+      home: login(),
+    ));
+  }
 }
