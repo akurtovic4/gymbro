@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymbro/chooseplan.dart';
+import 'package:gymbro/emailverification.dart';
 import 'package:gymbro/registration.dart';
 
 import 'intro1.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => registraion(),
+        '/': (context) => emailverification(),
         '/intro2': (context) => intro2(),
         '/intro3': (context) => intro3(),
         '/intro4': (context) => intro4(),
