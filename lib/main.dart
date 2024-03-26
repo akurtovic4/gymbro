@@ -8,7 +8,7 @@ import 'intro2.dart';
 import 'intro3.dart';
 import 'intro4.dart';
 import 'login.dart';
-import 'height.dart';
+import 'gender.dart';
 
 void main() => runApp(MyApp());
 
