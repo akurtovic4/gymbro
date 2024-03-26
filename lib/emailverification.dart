@@ -13,7 +13,7 @@ class emailverification extends StatelessWidget {
               height: MediaQuery
                   .of(context)
                   .size
-                  .height / 4,
+                  .height / 3,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('images/logo.png'), // Putanja do vašeg loga
@@ -54,7 +54,7 @@ class emailverification extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: 36),
 
             // Kvadrati za unos koda
             Row(
@@ -118,7 +118,7 @@ class emailverification extends StatelessWidget {
 
 
 
-            SizedBox(height: 16),
+            SizedBox(height: 36),
 
 
 

@@ -8,6 +8,7 @@ import 'intro2.dart';
 import 'intro3.dart';
 import 'intro4.dart';
 import 'login.dart';
+import 'height.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => emailverification(),
+        '/': (context) => height(),
         '/intro2': (context) => intro2(),
         '/intro3': (context) => intro3(),
         '/intro4': (context) => intro4(),
