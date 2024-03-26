@@ -169,6 +169,31 @@ class login extends StatelessWidget {
                 ],
               ),
             ), */
+
+
+            // Dodatni tekst ispod dugmeta
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Sie haben kein Konto? ',
+                    textAlign: TextAlign.center,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Logika za prijelaz na prijavu ili neku drugu akciju
+                      print('Prijavite se');
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.pink),
+                    ),
+                    child: Text('Anmeldung'),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
