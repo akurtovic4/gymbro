@@ -6,7 +6,8 @@ class age extends StatefulWidget {
 }
 
 class _AgeState extends State<age> {
-  int _selectedAge = 18; // Defaultno odabrana godina
+  int _selectedAge = 18;
+  FixedExtentScrollController _controller = FixedExtentScrollController(initialItem: 17);
 
   @override
   Widget build(BuildContext context) {
@@ -83,17 +84,22 @@ class _AgeState extends State<age> {
             ),
             SizedBox(height: 36),
 
+
             // Number picker za godine
             Container(
               height: 200,
               child: ListWheelScrollView(
                 itemExtent: 50,
+                controller: _controller,
                 children: List.generate(
                   150,
                       (index) => Center(
                     child: Text(
                       '${index + 1}',
-                      style: TextStyle(fontSize: 24),
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: _selectedAge == index + 1 ? Colors.pink : Colors.black,
+                      ),
                     ),
                   ),
                 ),
@@ -107,37 +113,66 @@ class _AgeState extends State<age> {
 
             SizedBox(height: 20),
 
-            // Prikaz odabranog broja
-            Text(
-              'Ausgewähltes Jahr: $_selectedAge',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-
-            // Dugme "Anmelden"
-            Container(
-              width: 100,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Logika za dugme "Losgen"
-                  print('Dugme Losgen je pritisnuto. Odabrana godina: $_selectedAge');
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(100, 0)),
-                  maximumSize: MaterialStateProperty.all(
-                      Size(100, double.infinity)),
-                  backgroundColor: MaterialStateProperty.all(Colors.pink),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
-                ),
-                child: Text(
-                  'Weitermachen',
-                  style: TextStyle(
-                    color: Colors.white,
+            // Dugme "Vorherige" i "Anmelden"
+            // Dugme "Vorherige" i "Anmelden"
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Dugme "Vorherige"
+                ElevatedButton(
+                  onPressed: () {
+                    // Logika za dugme "Vorherige"
+                    print('Dugme Vorherige je pritisnuto.');
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white), // Bijela pozadina
+                    padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    ),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20), // Zaobljeni rubovi
+                        side: BorderSide(color: Colors.pink), // Roze okvir
+                      ),
+                    ),
+                    fixedSize: MaterialStateProperty.all(Size(120, 40)), // Postavljanje fiksne veličine
+                  ),
+                  child: Text(
+                    'Vorherige',
+                    style: TextStyle(
+                      color: Colors.pink, // Roze slova
+                    ),
                   ),
                 ),
-              ),
+
+                // Dugme "Anmelden"
+                ElevatedButton(
+                  onPressed: () {
+                    // Logika za dugme "Losgen"
+                    print('Dugme Losgen je pritisnuto. Odabrana godina: $_selectedAge');
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.pink),
+                    padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    ),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20), // Zaobljeni rubovi
+                      ),
+                    ),
+                    fixedSize: MaterialStateProperty.all(Size(120, 40)), // Postavljanje fiksne veličine
+                  ),
+                  child: Text(
+                    'Weitermachen',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
             ),
+
           ],
         ),
       ),
