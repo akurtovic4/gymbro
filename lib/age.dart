@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class gender extends StatefulWidget {
+class age extends StatefulWidget {
   @override
-  _HeightState createState() => _HeightState();
+  _AgeState createState() => _AgeState();
 }
 
-class _HeightState extends State<gender> {
-  int _selectedGenderIndex = -1; // Inicijalno nijedna opcija nije odabrana
+class _AgeState extends State<age> {
+  int _selectedAge = 18; // Defaultno odabrana godina
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _HeightState extends State<gender> {
               color: Colors.white,
               child: Center(
                 child: Text(
-                  'Wählen Sie Geschlecht',
+                  'Wie alt bist du?',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class _HeightState extends State<gender> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Schritt 1 von 10',
+                'Schritt 2 von 10',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -62,17 +62,19 @@ class _HeightState extends State<gender> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.pink,
-                        borderRadius: BorderRadius.horizontal(left: Radius.circular(5)),
+                        borderRadius: BorderRadius.horizontal(
+                            left: Radius.circular(5)),
                       ),
                     ),
                   ),
                   // Ostali segmenti u sivoj boji
                   Expanded(
-                    flex: 9, // 11 sivih segmenata
+                    flex: 8,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.grey[300],
-                        borderRadius: BorderRadius.horizontal(right: Radius.circular(5)),
+                        borderRadius: BorderRadius.horizontal(
+                            right: Radius.circular(5)),
                       ),
                     ),
                   ),
@@ -80,23 +82,45 @@ class _HeightState extends State<gender> {
               ),
             ),
             SizedBox(height: 36),
-            // Dugmad za izbor spola
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _genderButton(Icons.female, 'Frauen', 0), // Žensko
-                _genderButton(Icons.male, 'Mann', 1), // Muško
-                _genderButton(Icons.transgender, 'Diverse', 2), // Transgender
-              ],
+
+            // Number picker za godine
+            Container(
+              height: 200,
+              child: ListWheelScrollView(
+                itemExtent: 50,
+                children: List.generate(
+                  150,
+                      (index) => Center(
+                    child: Text(
+                      '${index + 1}',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                ),
+                onSelectedItemChanged: (index) {
+                  setState(() {
+                    _selectedAge = index + 1;
+                  });
+                },
+              ),
             ),
+
             SizedBox(height: 20),
+
+            // Prikaz odabranog broja
+            Text(
+              'Ausgewähltes Jahr: $_selectedAge',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+
             // Dugme "Anmelden"
             Container(
               width: 100,
               child: ElevatedButton(
                 onPressed: () {
                   // Logika za dugme "Losgen"
-                  print('Dugme Losgen je pritisnuto.');
+                  print('Dugme Losgen je pritisnuto. Odabrana godina: $_selectedAge');
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(Size(100, 0)),
@@ -119,37 +143,10 @@ class _HeightState extends State<gender> {
       ),
     );
   }
-
-  Widget _genderButton(IconData icon, String text, int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      child: ElevatedButton.icon(
-        onPressed: () {
-          // Ažurirajte indeks odabranog spola
-          setState(() {
-            _selectedGenderIndex = index;
-          });
-        },
-        icon: Icon(icon),
-        label: Text(
-          text,
-          style: TextStyle(fontSize: 18),
-        ),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              index == _selectedGenderIndex ? Colors.pink : Colors.grey[300]),
-          padding: MaterialStateProperty.all(EdgeInsets.all(16)),
-          shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          )),
-        ),
-      ),
-    );
-  }
 }
 
 void main() {
   runApp(MaterialApp(
-    home: gender(),
+    home: age(),
   ));
 }
