@@ -10,6 +10,7 @@ import 'intro4.dart';
 import 'login.dart';
 import 'gender.dart';
 import 'age.dart';
+import 'weight.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => age(),
+        '/': (context) => weight(),
         '/intro2': (context) => intro2(),
         '/intro3': (context) => intro3(),
         '/intro4': (context) => intro4(),
