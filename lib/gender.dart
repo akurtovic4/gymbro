@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class gender extends StatefulWidget {
   @override
-  _HeightState createState() => _HeightState();
+  _GenderState createState() => _GenderState();
 }
 
-class _HeightState extends State<gender> {
+class _GenderState extends State<gender> {
   int _selectedGenderIndex = -1; // Inicijalno nijedna opcija nije odabrana
 
   @override
