@@ -47,7 +47,7 @@ class _ZielState extends State<Ziel> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'Schritt 6 von 10',
+                      'Schritt 5 von 10',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
@@ -100,19 +100,64 @@ class _ZielState extends State<Ziel> {
               ),
             ),
           ),
-          // Dugme "Anmelden"
-          Container(
-            width: MediaQuery.of(context).size.width, // Širina jednak širini ekrana
-            child: ElevatedButton(
+        ],
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(vertical: 8),
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // Dugme "Vorherige"
+            ElevatedButton(
               onPressed: () {
-                // Logika za dugme "Losgen"
-                print('Dugme Losgen je pritisnuto. Odabrani interesi: $_selectedInterests');
+                // Logika za dugme "Vorherige"
+                print('Dugme Vorherige je pritisnuto.');
               },
               style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 0)), // Postavljanje minimalne širine na širinu ekrana
-                maximumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, double.infinity)), // Postavljanje maksimalne širine na širinu ekrana i visine na maksimalnu visinu
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                // Bijela pozadina
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                ),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    // Zaobljeni rubovi
+                    side: BorderSide(color: Colors.pink), // Roze okvir
+                  ),
+                ),
+                fixedSize: MaterialStateProperty.all(
+                    Size(120, 40)), // Postavljanje fiksne veličine
+              ),
+              child: Text(
+                'Vorherige',
+                style: TextStyle(
+                  color: Colors.pink, // Roze slova
+                ),
+              ),
+            ),
+
+            // Dugme "Anmelden"
+            ElevatedButton(
+              onPressed: () {
+                // Logika za dugme "Weitermachen"
+                print(
+                    'Dugme Weitermachen je pritisnuto. Odabrani interesi: $_selectedInterests');
+              },
+              style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
-                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                ),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        20), // Zaobljeni rubovi
+                  ),
+                ),
+                fixedSize: MaterialStateProperty.all(
+                    Size(120, 40)), // Postavljanje fiksne veličine
               ),
               child: Text(
                 'Weitermachen',
@@ -121,8 +166,8 @@ class _ZielState extends State<Ziel> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
