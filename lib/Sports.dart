@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/FitnessLevel.dart';
 
 class Sports extends StatefulWidget {
   @override
@@ -104,8 +105,10 @@ class _SportState extends State<Sports> {
             // Dugme "Vorherige"
             ElevatedButton(
               onPressed: () {
-                // Logika za dugme "Vorherige"
-                print('Dugme Vorherige je pritisnuto.');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FitnessLevel()),
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.white),

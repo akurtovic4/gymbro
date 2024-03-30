@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/FitnessLevel.dart';
+
+import 'Ziel.dart';
 
 class ZielDrei extends StatefulWidget {
   @override
@@ -113,6 +116,10 @@ class _ZielDreiState extends State<ZielDrei> {
               onPressed: () {
                 // Logika za dugme "Vorherige"
                 print('Dugme Vorherige je pritisnuto.');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Ziel()),
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -141,9 +148,10 @@ class _ZielDreiState extends State<ZielDrei> {
             // Dugme "Anmelden"
             ElevatedButton(
               onPressed: () {
-                // Logika za dugme "Weitermachen"
-                print(
-                    'Dugme Weitermachen je pritisnuto. Odabrani interesi: $_selectedInterests');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FitnessLevel()),
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.pink),

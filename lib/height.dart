@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/Ziel.dart';
+import 'package:gymbro/weight.dart';
 
 class height extends StatefulWidget {
   @override
@@ -113,6 +115,10 @@ class _heightState extends State<height> {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => weight()),
+                    );
                     print('Dugme Vorherige je pritisnuto.');
                   },
                   style: ButtonStyle(
@@ -140,6 +146,10 @@ class _heightState extends State<height> {
                   onPressed: () {
                     print(
                         'Dugme Losgen je pritisnuto. Odabrana visina: $_selectedHeight');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Ziel()),
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.pink),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'age.dart';
+import 'height.dart';
+
 class weight extends StatefulWidget {
   @override
   _weightState createState() => _weightState();
@@ -139,6 +142,10 @@ class _weightState extends State<weight> {
                   onPressed: () {
                     // Logika za dugme "Vorherige"
                     print('Dugme Vorherige je pritisnuto.');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => age()),
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -167,7 +174,10 @@ class _weightState extends State<weight> {
                 // Dugme "Anmelden"
                 ElevatedButton(
                   onPressed: () {
-                    // Logika za dugme "Losgen"
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => height()),
+                    );
 
                   },
                   style: ButtonStyle(

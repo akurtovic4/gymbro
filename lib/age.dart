@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/weight.dart';
+
+import 'gender.dart';
 
 class age extends StatefulWidget {
   @override
@@ -121,8 +124,12 @@ class _AgeState extends State<age> {
                 // Dugme "Vorherige"
                 ElevatedButton(
                   onPressed: () {
-                    // Logika za dugme "Vorherige"
-                    print('Dugme Vorherige je pritisnuto.');
+
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => gender()),
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white), // Bijela pozadina
@@ -145,11 +152,14 @@ class _AgeState extends State<age> {
                   ),
                 ),
 
-                // Dugme "Anmelden"
+
                 ElevatedButton(
                   onPressed: () {
-                    // Logika za dugme "Losgen"
-                    print('Dugme Losgen je pritisnuto. Odabrana godina: $_selectedAge');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => weight()),
+                    );
+                    print('Dugme weitermachen je pritisnuto. Odabrana godina: $_selectedAge');
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.pink),
