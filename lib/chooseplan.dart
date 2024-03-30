@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'gender.dart';
+
 class chooseplan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -140,18 +142,18 @@ class chooseplan extends StatelessWidget {
 
           SizedBox(height: 36),
 
-          Container(
-            width: 100,
+          Center(
             child: ElevatedButton(
               onPressed: () {
-
-                print('Dugme Weiter je pritisnuto.');
+                // Navigacija na idući ekran
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => gender()),
+                );
               },
               style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(Size(100, 0)),
-                maximumSize: MaterialStateProperty.all(Size(100, double.infinity)),
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
-                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
+                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 44, vertical: 8)),
               ),
               child: Text(
                 'Weitermachen',

@@ -15,6 +15,7 @@ import 'height.dart';
 import 'Ziel.dart';
 import 'ZielDrei.dart';
 import 'FitnessLevel.dart';
+import 'Sports.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,10 +26,21 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => FitnessLevel(),
+        '/': (context) => intro1(),
         '/intro2': (context) => intro2(),
         '/intro3': (context) => intro3(),
         '/intro4': (context) => intro4(),
+        '/chooseplan': (context) => login(),
+        '/gender': (context) => gender(),
+        '/age': (context) => age(),
+        '/weight': (context) => weight(),
+        '/height': (context) => height(),
+        '/ziel1': (context) => Ziel(),
+        '/ziel2': (context) => ZielDrei(),
+        '/fitnesslvl': (context) => FitnessLevel(),
+        '/sports': (context) => Sports(),
+
+
 
 
 

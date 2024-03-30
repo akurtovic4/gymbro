@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro/chooseplan.dart';
 
 class intro4 extends StatelessWidget {
   @override
@@ -60,19 +61,18 @@ class intro4 extends StatelessWidget {
           // Dugme "Losgen"
 
           SizedBox(height: 16),
-
-          Container(
-            width: 100,
+          Center(
             child: ElevatedButton(
               onPressed: () {
-                // Logika za dugme "Losgen"
-                print('Dugme Losgen je pritisnuto.');
+                // Navigacija na idući ekran
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => chooseplan()),
+                );
               },
               style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(Size(100, 0)),
-                maximumSize: MaterialStateProperty.all(Size(100, double.infinity)),
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
-                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 12, vertical: 8)),
+                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 44, vertical: 8)),
               ),
               child: Text(
                 'Start',

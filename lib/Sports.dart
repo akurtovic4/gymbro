@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'age.dart';
-
-class gender extends StatefulWidget {
+class Sports extends StatefulWidget {
   @override
-  _GenderState createState() => _GenderState();
+  _SportState createState() => _SportState();
 }
 
-class _GenderState extends State<gender> {
-  int _selectedGenderIndex = -1; // Inicijalno nijedna opcija nije odabrana
+class _SportState extends State<Sports> {
+  int _selectedSportIndex = -1; // Inicijalno nijedan sport nije odabran
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class _GenderState extends State<gender> {
               color: Colors.white,
               child: Center(
                 child: Text(
-                  'Wählen Sie Geschlecht',
+                  'Welche Sportart bevorzugen Sie?',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -45,7 +43,7 @@ class _GenderState extends State<gender> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Schritt 1 von 10',
+                'Schritt 8 von 10',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -82,35 +80,81 @@ class _GenderState extends State<gender> {
               ),
             ),
             SizedBox(height: 36),
-            // Dugmad za izbor spola
+            // Dugmad za izbor sportova
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                _genderButton(Icons.female, 'Frauen', 0), // Žensko
-                _genderButton(Icons.male, 'Mann', 1), // Muško
-                _genderButton(Icons.transgender, 'Diverse', 2), // Transgender
+                _sportButton(Icons.directions_run, 'Cardio', 0), // Cardio
+                _sportButton(Icons.fitness_center, 'Krafttraining', 1), // Krafttraining
+                _sportButton(Icons.directions_bike, 'Strecken', 2), // Strecken
+                _sportButton(Icons.music_note, 'Tanzen', 3), // Tanzen
+                _sportButton(Icons.spa, 'Yoga', 4), // Yoga
               ],
             ),
             SizedBox(height: 20),
-            // Dugme "Anmelden"
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // Navigacija na idući ekran
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => age()),
-                  );
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.pink),
-                  padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 44, vertical: 8)),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(vertical: 8),
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // Dugme "Vorherige"
+            ElevatedButton(
+              onPressed: () {
+                // Logika za dugme "Vorherige"
+                print('Dugme Vorherige je pritisnuto.');
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                // Bijela pozadina
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 ),
-                child: Text(
-                  'Weiter',
-                  style: TextStyle(
-                    color: Colors.white,
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    // Zaobljeni rubovi
+                    side: BorderSide(color: Colors.pink), // Roze okvir
                   ),
+                ),
+                fixedSize: MaterialStateProperty.all(
+                    Size(120, 40)), // Postavljanje fiksne veličine
+              ),
+              child: Text(
+                'Vorherige',
+                style: TextStyle(
+                  color: Colors.pink, // Roze slova
+                ),
+              ),
+            ),
+
+            // Dugme "Anmelden"
+            ElevatedButton(
+              onPressed: () {
+                // Logika za dugme "Weitermachen"
+                print('Dugme Weitermachen je pritisnuto.');
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.pink),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                ),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        20), // Zaobljeni rubovi
+                  ),
+                ),
+                fixedSize: MaterialStateProperty.all(
+                    Size(120, 40)), // Postavljanje fiksne veličine
+              ),
+              child: Text(
+                'Weitermachen',
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -120,14 +164,14 @@ class _GenderState extends State<gender> {
     );
   }
 
-  Widget _genderButton(IconData icon, String text, int index) {
+  Widget _sportButton(IconData icon, String text, int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: ElevatedButton.icon(
         onPressed: () {
-          // Ažurirajte indeks odabranog spola
+          // Ažurirajte indeks odabrane sporta
           setState(() {
-            _selectedGenderIndex = index;
+            _selectedSportIndex = index;
           });
         },
         icon: Icon(icon),
@@ -137,7 +181,7 @@ class _GenderState extends State<gender> {
         ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(
-              index == _selectedGenderIndex ? Colors.pink : Colors.grey[300]),
+              index == _selectedSportIndex ? Colors.pink : Colors.grey[300]),
           padding: MaterialStateProperty.all(EdgeInsets.all(16)),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -150,6 +194,6 @@ class _GenderState extends State<gender> {
 
 void main() {
   runApp(MaterialApp(
-    home: gender(),
+    home: Sports(),
   ));
 }
